@@ -13,7 +13,7 @@ radius = 36.0
 height = 102.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sxpdm"]
-bg_color = Color(0.118581, 0.118581, 0.118581, 1)
+bg_color = Color(1.66954e-07, 0.178143, 0.0169446, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -37,6 +37,7 @@ shape = SubResource("CapsuleShape2D_jebg2")
 one_way_collision_margin = 0.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
 
 [node name="Gun" parent="." instance=ExtResource("3_xamii")]
 position = Vector2(0, -36)
@@ -58,3 +59,4 @@ offset_bottom = -106.0
 theme_override_styles/background = SubResource("StyleBoxFlat_sxpdm")
 theme_override_styles/fill = SubResource("StyleBoxFlat_iytlu")
 value = 49.34
+show_percentage = false
