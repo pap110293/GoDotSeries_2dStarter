@@ -7,15 +7,28 @@ func _ready():
 	player =  get_node("/root/Game/Player")
 	
 func _physics_process(_delta):
-	var enemies_in_range = get_overlapping_bodies()
-	if(enemies_in_range.size() > 0):
-		var tartget_enemy = enemies_in_range.front()
+	flipTheGun()
+	
+
+func _process(delta):
+	var tartget_enemy = find_nearest_enemy()
+	if tartget_enemy:
 		look_at(tartget_enemy.global_position)
 		is_shooting = true
 	else:
 		is_shooting = false
-	
-	flipTheGun()
+
+func find_nearest_enemy():
+	var enemies_in_range = get_overlapping_bodies()
+	var nearest_body = null
+	if(enemies_in_range.size() > 0):
+		var closest_distance = INF
+		for enemy in enemies_in_range:
+			var distance = global_position.distance_to(enemy.global_position)
+			if distance < closest_distance:
+				closest_distance = distance
+				nearest_body = enemy
+	return nearest_body
 
 func flipTheGun():
 	var scaleY = 1
